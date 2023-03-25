@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .photo {
+        width: 95vw;
+        display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(200px, auto));
+    grid-gap: 1.3rem;
+   
+
+    }
+    .photo img {
+        width: 100%;
+        border-radius: 4%;
+      
+    }
+
+    .imgFirst {
+        width: 100%;
+        height: 50vh;
+        border-radius: 4%;
+    }
+</style>
+<body>
+    <div id="galery">
+        <div class="firstPhotto">
+            <img class="imgFirst" src="./assets/images/acceuillevanilla.jpg" alt="">
+        </div>
+        <div class="photo">
+            <img src="./assets/images/acceuillevanilla.jpg" alt="">
+            <img src="./assets/images/acceuillevanilla.jpg" alt="">
+            <img src="./assets/images/acceuillevanilla.jpg" alt="">
+
+        </div>
+    </div>
+</body>
+</html>

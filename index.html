@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla js/221</title>
+    <link rel="stylesheet" href="/dist/output.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        .banner {
+            background-color: rgb(46, 2, 73);
+            color: #fff;
+        }
+
+        .header {
+            position: fixed;
+            background-color: rgba(8, 8, 9, 0.759);
+            z-index: 1;
+            padding: 0;
+        }
+
+        #header {
+            background-color: rgb(235, 229, 229);
+            padding-top: 9px;
+            padding-bottom: 9px;
+        }
+
+        body {}
+
+        .navbarscrolled {
+            top: 0;
+            background-color: rgba(46, 2, 73, 0.759);
+
+            -webkit-backdrop-filter: blur(5px);
+            color: rgb(176, 55, 12);
+            position: fixed;
+            z-index: 1;
+            width: 100vw;
+            padding: 8px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid rgb(98, 32, 148);
+            box-shadow: 0 0 466px 0 rgb(76, 47, 47);
+
+
+
+        }
+
+        #home {
+            height: 100vh;
+            background: url("assets/images/hands.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+        }
+
+         .txt {
+            position: absolute;
+            width: 90%;
+            height: auto;
+            margin-left: 5%;
+            background-color: #b620c96b;
+            --webkit-backdrop-filter: blur(5px);
+            border-radius: 20px;
+            font-size: x-large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+
+            align-content: center;
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            margin-top: 15%;
+            padding: 1%;
+        } 
+
+
+        * SERVICES */ #service h1 {
+            text-align: center;
+        }
+
+        #service p {
+            color: black;
+            padding-top: 12px;
+            padding-bottom: 29px;
+        }
+
+        #service h1+p {
+            font-size: 19px;
+        }
+
+        #service {
+            text-align: center;
+            font-size: x-large;
+        }
+
+        #design {
+            background-color: #fff;
+            /* background: url('assets/images/development.svg');
+    background-repeat: repeat; */
+            background-size: contain;
+        }
+
+        #service img {
+            width: 70%;
+            height: auto;
+        }
+
+
+
+        .slideshow-container {
+            max-width: 700px;
+            position: relative;
+            margin: auto;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 55vh;
+            perspective: 19990px;
+
+
+
+        }
+
+        /* gallery */
+        .grid .photo {
+            display: grid;
+            grid-template-columns: 32% 32% 32%;
+            grid-gap: 2%;
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 0.9s ease;
+            padding: 2%;
+            border-radius: 5%;
+            border: 1px solid rgb(201, 196, 196);
+        }
+
+        .front {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .front img {
+            width: 100%;
+            margin: auto;
+        }
+
+        .back {
+            color: var(--primary-color);
+            background-color: #ffffff;
+            transform: rotateY(180deg);
+        }
+
+        .back p {
+            font-size: 19px;
+            padding: 3%;
+        }
+
+        .card:hover .front {
+            transform: rotateY(180deg);
+        }
+
+        .card:hover .back {
+            transform: rotateY(0deg);
+        }
+
+        #contact {
+            background-color: rgba(46, 2, 73, 1);
+        }
+
+        /* #contact .formeInterieur{
+    background-color: rgba(46, 2, 73, 1);
+   }  */
+        #contact .aa {
+            background-color: rgba(208, 195, 220, 0.022);
+        }
+
+
+        /* ANIMATIOM MENU */
+
+        ul li a {
+  
+    position: relative;
+}
+ul li a::after{
+    position: absolute;
+    bottom: -6px;
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: rgba(46, 2, 73, 1);
+   left: 13px;
+   
+    
+}
+ul li a:hover::after{
+    width: 100%;
+ transition: 3s;
+ background-color: rgba(46, 2, 73, 1);}
+
+ul li a:hover{
+    color: gba(46, 2, 73, 1);
+    transition: 1s;
+}
+
+       
+
+        /* formeInterieur */
+    </style>
+      />
+      <link
+        href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+        rel="stylesheet"
+      />
+      <!-- Swiper's CSS -->
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper/swiper-bundle.min.css"
+      />
+</head>
+
+
+
+<body>
+
+    <div class="banner pl-3" id="banner">
+        <a href="https://www.facebook.com/people/Vanilla-js221/100090152205011/?mibextid=LQQJ4d"
+            class="background-color: rgba(46, 2, 73, 0.385) hover:text-violet-900 mr-4"><i
+                class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/vanillajs221" class="text-white hover:text-blue-400 mr-4"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/vanilla_js_221/"
+            class="background-color: rgba(46, 2, 73, 0.385) hover:text-red-500 mr-4"><i
+                class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/vanilla-js221/"
+            class="background-color: rgba(46, 2, 73, 0.385) hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <header class=" mx-40header  w-full h-16 drop-shadow-lg ,x" id="header">
+        <div class="container  px-4 md:px-0 h-full mx-auto flex justify-between items-center">
+            <!-- Logo Here -->
+            <a href="#banner"><img class="w-14 " src="./assets/images/logo7.png" alt=""></a>
+
+            <!-- Menu links here -->
+            <ul id="menu" class="hidden fixed top-0 right-0 px-10 py-8 backdrop-blur-sm backdrop-blur-md bg-violet-900/30  z-50
+                    md:relative md:flex md:p-0 md:bg-transparent md:flex-row md:space-x-6">
+
+                <li class="md:hidden z-90 fixed top-4 right-6">
+                    <a href="javascript:void(0)" class="text-right text-white text-4xl"
+                        onclick="toggleMenu()">&times;</a>
+                </li>
+
+                <li>
+                    <a class="text-violet-900  hover:opacity-100 duration-300" href="#home"><i class="fa fa-home"></i>
+                        Acceuil</a>
+                </li>
+                <li>
+                    <a class="text-violet-900   hover:opacity-100 duration-300" href="#presentation"><i
+                            class="fa fa-person"></i> Presentation</a>
+                </li>
+                <li>
+                    <a class="text-violet-900   hover:opacity-100 duration-300" href="#service"><i class="fa fa-refresh"
+                            aria-hidden="true"></i> Service</a>
+                </li>
+
+                <li>
+                    <a class="text-violet-900 hover:opacity-100 duration-300" href="#galery"><i
+                            class='far fa-file-image'></i> Galerie</a>
+                </li>
+                <li>
+                    <a class="text-violet-900   hover:opacity-100 duration-300" href="#contact"><i class="fa fa-envelope"
+                            aria-hidden="true"></i> Contact</a>
+                </li>
+            </ul>
+
+            <!-- This is used to open the menu on mobile devices -->
+            <div class="flex items-center md:hidden">
+                <button class="text-white text-4xl font-bold opacity-70 hover:opacity-100 duration-300"
+                    onclick="toggleMenu()">
+                    &#9776;
+                </button>
+            </div>
+
+    </header>
+
+    <main>
+        <section id="home">
+            <p class="txt text-slate-50 w-4/5  h-auto mx-auto">
+                Beaucoup de chemins mènent à la réussite, mais un seul mène immanquablement à l’échec,
+                <br> celui qui consiste à tenter de plaire à tout le monde.
+            </p>
+        </section>
+
+        <section id="presentation">
+            <h2 class="w-full text-center text-4xl text-gray-700 py-10">Presentation</h2>
+            <div class="containerPresentation lg:grid grid-cols-2 gap-1">
+                <div class="image" data-aos="flip-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                    <img src="assets/images/sommes.JPG" alt="">
+                </div>
+                <div class="text px-9 bg-slate-100" data-aos="fade-up" data-aos-easing="linear"
+                    data-aos-duration="1600">
+                    <h2 class="text-center py-5 text-5xl">Qui sommes-nous </h2>
+                    <hr>
+                    <p class="txtQuiSommes  text-lg text-gray-800">Bienvenue ! nous somme heureux de vous présenter
+                        Vanilla js /221, une startup spécialisée dans le domaine
+                        du numérique.
+                        Chez Vanilla js /221, nous sommes passionnées par la
+                        technologie et nous sommes fiers d’offrir des services
+                        de haute qualité pour répondre à tous vos besoins en
+                        matière de numérique.
+                        Nous proposons des solutions sur mesure pour vous
+                        aider à développer votre entreprise et à atteindre vos
+                        objectifs
+
+                    </p>
+                    <div class="text-center my-14">
+                        <button
+                            class="bg-transparent  hover:bg-indigo-800 text-indigo-800 font-semibold hover:text-white py-2 px-4 border border-violet-700 hover:border-transparent rounded
+                            transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-violet-900 duration-300 ...">
+                            <a href="#contact">Nous Contactez</a>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="service" class="mx-5">
+            <h2 class="text-center py-5 text-4xl text-gray-700 ">Nos Services</h2>
+            <div class="containerService lg:grid grid-cols-3 gap-3 ">
+                <div class="card ">
+                    <div class="front">
+                        <h2>Vanilla Reseau</h2>
+                        <img src="assets/images/network.svg" alt="">
+
+                    </div>
+                    <div class="back">
+                        <h2>Vanilla dev</h2>
+
+                        <p>
+                            En ce qui concerne le câblage réseau, notre équipe qualifiée peut concevoir, installer
+                            et
+                            configurer des réseaux câblés ou sans fil pour les entreprises et les particuliers. Nous
+                            offrons
+                            des solutions de haute qualité pour assurer une connectivité rapide et fiable, ainsi que
+                            la
+                            sécurité et la confidentialité des données.
+                        </p>
+                    </div>
+                </div>
+                <div class="card my-3 sm:my-1">
+                    <div class="front">
+                        <h2>Developpement d application</h2>
+                        <img src="assets/images/development.svg" alt="">
+
+                    </div>
+                    <div class="back">
+                        <h2>Developpement d application</h2>
+
+                        <p>
+                            Si vous rechercher un partenaire fiable pour la création
+                            d’une application web responsive (site e-commerce, site
+                            vitrine, plateformes portfolio …) et d’une application
+                            mobile disponibles sur multiples plateformes (Android,
+                            iOS) et quelque soit votre secteur d’activité Vanilla js
+                            /221 est l’endroit qu’il vous faut. Nous sommes
+                            engagés à fournir des solutions sur mesures qui
+                            répondent à vos besoins spécifiques.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="front" id="design">
+                        <h2>Design graphics</h2>
+                        <img src="assets/images/design-art.png" alt="">
+
+                    </div>
+                    <div class="back">
+                        <h2>Design graphics</h2>
+
+                        <p>
+                            Pour la création visuelle, Notre équipe créative peut travailler avec vous
+                            pour créer
+                            des designs innovants qui reflètent la personnalité et les valeurs de votre entreprise.
+                            Nous avons aussi des experts pour la création de logo, affiche,
+                            flyers, carte de visite, carte de mariage. la sérigraphie pour vos tasses, Tee-shirt et
+                            autres
+                            personnalises
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="height: 320px;padding-top: 10px;">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      class="object-cover w-full h-80"
+                      src="assets/images/pub.png"
+                      alt="apple watch photo"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      class="object-cover w-full h-80"
+                      src="assets/images/banner.png"
+                      alt="apple watch photo"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      class="object-cover w-full h-80"
+                      src="assets/images/digit.jpg"
+                      alt="apple watch photo"
+                    />
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+
+        </section>
+        <section id="contact" >
+            <div data-aos="fade-up" data-aos-easing="linear"
+            data-aos-duration="1600">
+                
+            		<!-- Container -->
+		<div class="container mx-auto">
+			<div class="flex justify-center px-2 my-1">
+				<!-- Row -->
+				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
+					<!-- Col -->
+					<div
+						class="w-full h-auto bg-gray-400 hidden lg:block lg:w-8/12 bg-cover rounded-l-none"
+						style="background: rgb(201, 196, 196);;"
+					>            <div class="w-full px-20 z-10">
+                        <h1 class="text-4xl font-bold text-white text-center pt-10">Contacter-nous</h1>
+                        <p class="text-2xl my-14"><i class="fa fa-envelope p-2" aria-hidden=""></i>VanillaJs221@gmail.com</p>
+                        <p class="text-2xl my-14"><i class="fa fa-phone p-2" aria-hidden="true"></i>+221 78 158 98 71</p>
+                        <p class="text-2xl my-14"><i class="fa fa-map-marker p-2" aria-hidden="true"></i>wakhinane Nimzatt</p>
+                        <p class="text-2xl my-14 justify-center text-center">
+                            <a href="https://www.facebook.com/people/Vanilla-js221/100090152205011/?mibextid=LQQJ4d"
+                                class="text-yellow hover:text-gray-800 mr-4"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-yellow hover:text-gray-800 mr-4"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/vanilla_js_221/" class="text-yellow hover:text-gray-800 mr-4"><i
+                                class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/vanilla-js221/" class="text-yellow hover:text-gray-800"><i
+                                class="fab fa-linkedin"></i></a>
+                        </p>
+                    </div>
+                </div>
+					<!-- Col -->
+					<div class="w-full lg:w-7/12 bg-white p-5 rounded-none lg:rounded-l-none">
+						<h3 class="pt-4 text-2xl text-center">Merci de remplir le formulaire!</h3>
+						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+							<div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mr-2 md:mb-0">
+									<label class="block mb-2 text-sm font-bold text-gray-700" for="firstName">
+										Prenom
+									</label>
+									<input
+										class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="prenom"
+										type="text"
+										placeholder="Prenom"
+									/>
+								</div>
+								<div class="md:ml-2">
+									<label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
+										Nom
+									</label>
+									<input
+										class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="nom"
+										type="text"
+										placeholder="Nom"
+									/>
+								</div>
+							</div>
+							<div class="mb-4">
+								<label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+									Email
+								</label>
+								<input
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									id="email"
+									type="email"
+									placeholder="exemplexyz@g;qil.com"
+								/>
+							</div>
+							<div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mr-2 md:mb-0">
+                                    <div class="flex flex-col mb-3">
+                                        <label for="message">Message</label>
+                                        <textarea placeholder="Votre message ici....."
+                                            rows="4" cols="70" id="message" 
+                                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                        ></textarea>
+                                        </div>
+								</div>
+							</div>
+							<div class="mb-6 text-center">
+								<button
+									class="w-full px-4 py-2 font-bold text-white bg-purple-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+									type="button"
+								>
+									Envoyer
+								</button>
+							</div>
+							<hr class="mb-6 border-t" />
+							<div class="text-center">
+								<a
+									class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+									href="#"
+								>
+									Abonnez-vous à nos réseaux sociaux
+								</a>
+							</div>
+							<div class="text-center">
+								<a
+									class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+									href="#"
+								>
+									pour découvrir les nouvelles offres!
+								</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+            </div>
+        </section>
+
+    </main>
+    <footer class=" bg-slate-200">
+        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-easing="linear"
+        data-aos-duration="1600">
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full lg:w-1/3 px-4 mb-4 lg:mb-0">
+                    <h4 class="text-lg font-semibold mb-4 footer-title">A propos</h4>
+                    <p class="text-gray-600 footer-p">Vanillajs/221 est une start-up spécialisée dans la création de sites
+                        web, Design Graphique et câblage réseau télécom.</p>
+                </div>
+                <div class="w-full lg:w-1/3 px-15">
+                    <h4 class="text-lg font-semibold mb-4 footer-title">Menu</h4>
+                    <p class="text-gray-600 mb-2">
+                        <a class="text-violet-900  hover:opacity-100 duration-300 footer-p" href="#home">
+                            <i class="fa fa-home"></i>
+                                Acceuil
+                        </a>
+                    </p>
+                    <p class="text-gray-600 mb-2">
+                        <a class="text-violet-900   hover:opacity-100 duration-300 footer-p" href="#presentation">
+                            <i class="fa fa-person"></i> 
+                                Presentation
+                        </a>
+                    </p>
+                    <p class="text-gray-600 mb-2">
+                        <a class="text-violet-900   hover:opacity-100 duration-300 footer-p" href="#service">
+                            <i class="fa fa-refresh" aria-hidden="true"></i> 
+                                Service
+                        </a>
+                    </p>
+                    <p class="text-gray-600 mb-2">
+                        <a class="text-violet-900 hover:opacity-100 duration-300 footer-p" href="#galery">
+                            <i class='far fa-file-image'></i> 
+                                Galerie
+                        </a>
+                    </p>
+                    <p class="text-gray-600 mb-2">
+                        <a class="text-violet-900   hover:opacity-100 duration-300 footer-p" href="#contact">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                             Contact
+                        </a>                
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/3 px-4">
+                    <h4 class="text-lg font-semibold mb-4 footer-title">Suivez-nous</h4>
+                    <div class="flex text-slate-700">
+                        <a href="https://www.facebook.com/people/Vanilla-js221/100090152205011/?mibextid=LQQJ4d"
+                            class="background-color: rgba(46, 2, 73, 0.385) hover:text-violet-900 mr-4 footer-p"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/vanillajs221" class="text-gray-500 hover:text-blue-400 mr-4 footer-p"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/vanilla_js_221/"
+                            class="background-color: rgba(46, 2, 73, 0.385) hover:text-red-500 mr-4 footer-p"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/vanilla-js221/"
+                            class="background-color: rgba(46, 2, 73, 0.385) hover:text-blue-700 footer-p"><i
+                                class="fab fa-linkedin"></i></a>
+
+                    </div>
+                    <div class="animate-bounce w-15 h-6 ... flex flex-row mt-2">
+                        <a href="#banner"><i class="fa fa-arrow-up mr-2" aria-hidden="true"></i></a>
+                        <span class="text-sm text-gray-600 mt-1"><a href="#banner">Retour en haut de page</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p class="text-slate-700 bg-slate-300 text-center">&copy; 2023 Développer par Vanilla_Js/221 TEAM</p>
+        </div>
+
+    </footer>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+
+    <!-- Javascript Code -->
+    <script>
+        
+AOS.init();
+        var menu = document.getElementById('menu');
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('w-full');
+            menu.classList.toggle('h-screen');
+        }
+        window.onscroll = function () { myFunction() };
+
+        function myFunction() {
+            if (document.documentElement.scrollTop > 20) {
+                document.getElementById("header").className = "navbarscrolled";
+                // document.getElementById("myP").className = "scrollColor";
+            } else {
+                document.getElementById("header").classList.remove("navbarscrolled")
+            }
+        }
+    </script>
+</body>
+</html>

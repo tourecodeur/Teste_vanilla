@@ -1,0 +1,25 @@
+{
+  "name": "vanillajs221",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fadel-Dev/vanillaJs221.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fadel-Dev/vanillaJs221/issues"
+  },
+  "homepage": "https://github.com/Fadel-Dev/vanillaJs221#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
+  }
+}
